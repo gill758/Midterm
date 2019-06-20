@@ -7,7 +7,7 @@ package arithmetic;
 
 import java.util.Scanner;
 
-/** This class takes String input plus,minus,divide and times
+/** This class takes int input for plus, minus,divide and times
  * from user and execute the operation
  *
  * @author sivagamasrinivasan
@@ -15,21 +15,43 @@ import java.util.Scanner;
  */
 public class ArithmeticBase 
 {
- public double x,y;
-    double calculate(double x, double y) 
+    //changing access specifier to private to force encapsulation
+ private double x,y;
+//creating getters and setters to implement encapsulation
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+ public int prompt()
+ {
+     System.out.println("Enter\n1 for addition\n2 for subtraction\n3 for "
+             + "multiplication\n4 for division");
+     Scanner sc = new Scanner(System.in);
+     int s= sc.nextInt();
+     return s;
+ }
+    double calculate(double x, double y, int op)
         {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("enter String");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
+        switch (op) 
         {
-            case "PLUS":
+            case 1:
                 return x + y;
-            case "MINUS":
+            case 2:
                 return x - y;
-            case "TIMES":
+            case 3:
                 return x * y;
-            case "DIVIDE":
+            case 4:
                 return x / y;
             default:
                 throw new AssertionError("Unknown operations " + this);

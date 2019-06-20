@@ -24,14 +24,11 @@ public class Arithmetic
     {
        
         ArithmeticBase r= new ArithmeticBase();
-        double result = r.calculate(1,2);
-        System.out.println("result :" +result); 
-    
+        //delegation
+        int operation = r.prompt();
+        double result = r.calculate(1,2,operation);
+        System.out.println("Result :" +result); 
     }
-
-
-
-
 
 }
 
